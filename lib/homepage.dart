@@ -14,9 +14,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text(widget.title),
-        backgroundColor: Colors.deepPurple[400],
+        backgroundColor: Colors.green,
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
@@ -31,24 +32,65 @@ class _HomePageState extends State<HomePage> {
       ),
       drawer: Drawer(
         child: Container(
-          color: Colors.deepPurple[400],
-          child: ListView(
-          children: const [
-            DrawerHeader(
-              child: Center(
-                child: Text("Facebook", style: TextStyle(fontSize: 30, color: Colors.white),),
-              ), 
-              ),
-          ],
+          color: Colors.brown,
+          child: Expanded(
+            child: ListView(
+              children: const [
+                DrawerHeader(
+                  child: Column(
+                    children: <Widget>[
+                      Text(
+                        "Social Media",
+                        style: TextStyle(
+                          fontSize: 33,
+                          fontWeight: FontWeight.w900,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(1.0),
+                  child: Column(
+                    children: [
+                      Text("Facebook", style: TextStyle(fontSize: 30, color: Colors.white),
+                ),
+                Text("Instagram", style: TextStyle(fontSize: 30, color: Colors.white),
+                ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
-      ),
-      body: const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('HELLO APP!'),
-          ],
+      body: Container(
+        color: Colors.black,
+        child: const Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'Welcome to my App!',
+                style: TextStyle(
+                  fontWeight: FontWeight.w900,
+                  color: Colors.green,
+                  fontSize: 33,
+                ),
+              ),
+              Image(image: AssetImage('assets/img/abagago.jpeg')),
+              Text(
+                'Jakoo',
+                style: TextStyle(
+                  fontWeight: FontWeight.w900,
+                  color: Colors.red,
+                  fontSize: 36,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
