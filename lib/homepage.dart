@@ -10,7 +10,17 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
+
+void displayImg(){
+  
+}
+void hideImg(){
+  
+}
+
 class _HomePageState extends State<HomePage> {
+  bool isImageVisible = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,6 +55,7 @@ class _HomePageState extends State<HomePage> {
                           fontSize: 33,
                           fontWeight: FontWeight.w900,
                           color: Colors.white,
+                          fontFamily: 'Source Code Pro',
                         ),
                       ),
                     ],
@@ -54,9 +65,9 @@ class _HomePageState extends State<HomePage> {
                   padding: EdgeInsets.all(1.0),
                   child: Column(
                     children: [
-                      Text("Facebook", style: TextStyle(fontSize: 30, color: Colors.white),
+                      Text("Facebook", style: TextStyle(fontSize: 30, color: Colors.white, fontFamily: 'Source Code Pro',),
                 ),
-                Text("Instagram", style: TextStyle(fontSize: 30, color: Colors.white),
+                Text("Instagram", style: TextStyle(fontSize: 30, color: Colors.white, fontFamily: 'Source Code Pro',),
                 ),
                     ],
                   ),
@@ -78,16 +89,32 @@ class _HomePageState extends State<HomePage> {
                   fontWeight: FontWeight.w900,
                   color: Colors.green,
                   fontSize: 33,
+                  fontFamily: 'Source Code Pro',
                 ),
               ),
-              Image(image: AssetImage('assets/img/abagago.jpeg')),
-              Text(
-                'Jakoo',
-                style: TextStyle(
-                  fontWeight: FontWeight.w900,
-                  color: Colors.red,
-                  fontSize: 36,
-                ),
+              Visibility(
+                visible: isImageVisible,
+                child: Image(image: AssetImage('assets/img/abagago.jpeg')),
+              ),
+              Row(
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        isImageVisible = true;
+                      });
+                      },
+                    child: Text("Display Image", style: TextStyle(fontSize: 20, color: Colors.green),),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        isImageVisible = false;
+                      });
+                      },
+                    child: Text("Hide Image", style: TextStyle(fontSize: 20, color: Colors.red),),
+                  ),
+                ],
               ),
             ],
           ),
