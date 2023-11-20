@@ -6,16 +6,7 @@ class HomePage extends StatefulWidget {
   final String title;
 
   @override
-  // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
-}
-
-
-void displayImg(){
-  
-}
-void hideImg(){
-  
 }
 
 class _HomePageState extends State<HomePage> {
@@ -66,9 +57,9 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     children: [
                       Text("Facebook", style: TextStyle(fontSize: 30, color: Colors.white, fontFamily: 'Source Code Pro',),
-                ),
-                Text("Instagram", style: TextStyle(fontSize: 30, color: Colors.white, fontFamily: 'Source Code Pro',),
-                ),
+                      ),
+                      Text("Instagram", style: TextStyle(fontSize: 30, color: Colors.white, fontFamily: 'Source Code Pro',),
+                      ),
                     ],
                   ),
                 ),
@@ -79,7 +70,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Container(
         color: Colors.black,
-        child: const Center(
+        child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -103,16 +94,16 @@ class _HomePageState extends State<HomePage> {
                       setState(() {
                         isImageVisible = true;
                       });
-                      },
-                    child: Text("Display Image", style: TextStyle(fontSize: 20, color: Colors.green),),
+                    },
+                    child: Text("Display Image", style: TextStyle(fontSize: 20, color: Colors.white)),
                   ),
                   ElevatedButton(
                     onPressed: () {
                       setState(() {
                         isImageVisible = false;
                       });
-                      },
-                    child: Text("Hide Image", style: TextStyle(fontSize: 20, color: Colors.red),),
+                    },
+                    child: Text("Hide Image", style: TextStyle(fontSize: 20, color: Colors.white)),
                   ),
                 ],
               ),
